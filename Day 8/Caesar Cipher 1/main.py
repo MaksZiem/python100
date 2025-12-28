@@ -1,3 +1,5 @@
+from operator import indexOf
+
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
@@ -6,6 +8,20 @@ shift = int(input("Type the shift number:\n"))
 
 
 # TODO-1: Create a function called 'encrypt()' that takes 'original_text' and 'shift_amount' as 2 inputs.
+
+def encrypt(text, shift):
+    result = ""
+    for letter in text:
+        shifted_position = alphabet.index(letter) + shift
+        if shifted_position >= len(alphabet):
+            new_index = len(alphabet) - (shifted_position)
+            result += alphabet[new_index]
+        else:
+            result += alphabet[shifted_position]
+
+    print("here is your encoded result: ", result)
+
+encrypt(text, shift)
 
 # TODO-2: Inside the 'encrypt()' function, shift each letter of the 'original_text' forwards in the alphabet
 #  by the shift amount and print the encrypted text.
