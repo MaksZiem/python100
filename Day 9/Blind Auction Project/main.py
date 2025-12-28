@@ -27,7 +27,3 @@ while bids_ends == False:
     if end == "tak":
         highest_bid(bids)
         bids_ends = True
-
-
-
-
